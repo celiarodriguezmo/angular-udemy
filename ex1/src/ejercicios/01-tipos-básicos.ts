@@ -1,4 +1,3 @@
-export {};
 let nombre: string = "Maria";
 
 nombre = "Celia";
