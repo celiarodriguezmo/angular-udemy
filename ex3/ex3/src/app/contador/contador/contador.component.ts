@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component ({
+  
   selector:'app-contador',
 
   template: `
     <h1>{{ title }}</h1>
-    <h3>la base es : <strong> 55 </strong></h3>
+    <h3>la base es : <strong> {{base}}</strong></h3>
     <button (click)="acumular(base)">+ {{ base }}</button>
 
     <span>{{ numero }}</span>
