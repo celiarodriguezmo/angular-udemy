@@ -5,7 +5,6 @@ import { Personaje } from '../interfaces/dbz.interfaces';
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
- 
 })
 export class AgregarComponent  {
 
@@ -22,18 +21,11 @@ export class AgregarComponent  {
       return;
     }
 
-    
-
     this.onNuevoPersonaje.emit(this.nuevo)
 
     this.nuevo = {
       nombre: '',
       poder:0
     }
-
-  
-    
   }
-  
-
 }
