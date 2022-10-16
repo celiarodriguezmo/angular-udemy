@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { GiftsService } from '../services/gifts.service';
 
 @Component({
   selector: 'app-results',
@@ -6,5 +7,12 @@ import { Component} from '@angular/core';
 
 export class ResultsComponent {
 
+  get results () {
+
+    return this.giftsService.apiResults;
+
+  }
+
+  constructor (private giftsService: GiftsService ) {}
 
 }

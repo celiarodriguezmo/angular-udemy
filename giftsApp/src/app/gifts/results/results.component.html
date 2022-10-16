@@ -1,4 +1,24 @@
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima dicta vitae,
-excepturi voluptatum ducimus deserunt quidem, repudiandae corrupti adipisci
-impedit voluptates eum, obcaecati reiciendis nulla. Eos facilis recusandae
-inventore nostrum.
+<!-- Podemos hacer una lista para obtener algunos datos de los resultados obtenidos por ejemplo sacar la propiedad título -->
+
+<!-- <ul>
+
+  <li *ngFor="let gift of results">{{ gift.title }}</li>
+
+</ul> -->
+
+<div class="row">
+  <div *ngFor="let gift of results" class="col-md-4 col-sm-6">
+    <div class="card">
+      <img
+        [src]="gift.images.downsized_medium.url"
+        [alt]="gift.title"
+        class="card-image-top"
+      />
+      <div class="card-body">
+        <p class="card-text">
+          {{ gift.title }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
