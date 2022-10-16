@@ -5,12 +5,12 @@
 https://scintillating-cat-b304b1.netlify.app
 
 
-<img src="./src/images/Heroes-App.JPG" width="750"/>
+<img src="./ex3/ex3/src/images/Heroes-App.JPG" width="750"/>
 
 ## Gifts App
 
 https://scintillating-cat-b304b1.netlify.app
 
 
-<img src="./src/images/
+<img src="./giftsApp/src/images/
 gifts-app.JPG" width="750"/>
