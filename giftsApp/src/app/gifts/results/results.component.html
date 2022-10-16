@@ -7,7 +7,10 @@
 </ul> -->
 
 <div class="row">
-  <div *ngFor="let gift of results" class="col-md-4 col-sm-6">
+  <div
+    *ngFor="let gift of results"
+    class="col-md-4 col-sm-6 animate__animated animate__zoomIn"
+  >
     <div class="card">
       <img
         [src]="gift.images.downsized_medium.url"

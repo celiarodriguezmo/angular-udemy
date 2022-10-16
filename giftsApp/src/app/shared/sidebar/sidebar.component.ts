@@ -17,4 +17,10 @@ export class SidebarComponent {
 
   }
 
+  search (argumento:string) {
+
+    this.giftsService.searchGifts( argumento);
+
+  }
+
 }

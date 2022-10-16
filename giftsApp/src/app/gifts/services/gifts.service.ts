@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpParams } from '@angular/common/http'
 import { Gift, SearchGiftsResponse } from '../interface/gifts.interfaces';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Gift, SearchGiftsResponse } from '../interface/gifts.interfaces';
 export class GiftsService {
 
     private apiKey : string = 'DLqUEDhqC7IGuc1joNJRWXZlpOcDKQd7';
-
+    private serviceURL : string = 'https://api.giphy.com/v1/gifs';
     private _historial : string [] = [];
 
     public apiResults : Gift []= [];
@@ -22,15 +22,17 @@ export class GiftsService {
     }
 
     constructor ( private http: HttpClient ) { 
-      
+
       if ( localStorage.getItem ('historial') ) {
 
         this._historial = JSON.parse ( localStorage.getItem('historial')! );
+        this.apiResults = JSON.parse ( localStorage.getItem('apiResults')! )
 
       }
       else{
 
         this._historial = [];
+        this.apiResults = [];
       }
 
     }
@@ -46,7 +48,8 @@ export class GiftsService {
 
         //almacenar en local storage//
 
-        localStorage.setItem('historial' , JSON.stringify( this._historial) )
+        localStorage.setItem('historial' , JSON.stringify( this._historial) );
+      
       }
 
 //Peticion al servidor tipo get usando el módulo de '@angular/common/http' llamado HttpClient que en lugar de promesas trabaja con obserbables y en lugar del .then() usa el .suscribe()//
@@ -55,11 +58,16 @@ export class GiftsService {
 
       //modificamos el tipado de la respuesta del get introduciendo <SearchGiftsresponse> que es lo que nos devuelve la interfaz creada para typescript de la data de la api//
 
-      this.http.get <SearchGiftsResponse> (`https://api.giphy.com/v1/gifs/search?api_key=DLqUEDhqC7IGuc1joNJRWXZlpOcDKQd7&q= ${ query } &limit=10`)
-      .subscribe( (resp) => {
 
-        console.log( resp.data );
+      const params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('limit', '10')
+      .set('q', query);
+
+      this.http.get<SearchGiftsResponse> (`${this.serviceURL}/search`,{params} )
+      .subscribe( (resp) => {
         this.apiResults = resp.data;
+        localStorage.setItem('apiResults' , JSON.stringify( this.apiResults) )
         
       })
 
