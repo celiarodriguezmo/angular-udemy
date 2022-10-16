@@ -12,5 +12,4 @@ https://scintillating-cat-b304b1.netlify.app
 https://scintillating-cat-b304b1.netlify.app
 
 
-<img src="./giftsApp/src/images/
-gifts-app.JPG" width="750"/>
+<img src="./giftsApp/src/images/gifts-app.JPG" width="750"/>
