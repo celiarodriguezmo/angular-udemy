@@ -6,6 +6,7 @@ import { DbzService } from '../services/dbz.services';
   templateUrl: './personajes.component.html',
 
 })
+
 export class PersonajesComponent  {
 
   // @Input() personajes: any [] = [];
